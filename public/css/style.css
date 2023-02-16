@@ -1,0 +1,71 @@
+.header {
+    background-color: rgb(168 65 72);
+}
+
+.foot {
+    background-color: rgb(168 65 72);
+}
+
+#logohead {
+    border-radius: 25%;
+    max-width: 50px;
+    padding: 5px;
+}
+
+#logofoot {
+    border-radius: 25%;
+    max-width: 50px;
+    padding: 5px;
+}
+
+
+#phead {
+    font-size: 25px;
+    font-family: 'Amatic SC', cursive;
+}
+
+#pfooter {
+    font-size: 20px;
+    font-family: 'Amatic SC', cursive, sans-serif;
+    color: #ffffff;
+}
+
+#imgDetail {
+    width: 70%;
+    border-radius: 5%;
+}
+
+#imgDetailtv {
+    width: 50%;
+    border-radius: 5%;
+}
+
+#imgSimilar {
+    width: 100px;
+    border-radius: 10%;
+    padding-top: 6%;
+}
+
+#pelRel{
+    text-align: center;
+}
+#pelRel2{
+    font-size: 60px;
+    text-align: center;
+}
+
+.container2 {
+    margin: 20px
+}
+
+.coldet {
+    text-align: center;
+}
+
+.boxSim {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}

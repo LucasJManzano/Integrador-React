@@ -1,0 +1,96 @@
+//import React, { useState, useEffect } from 'react';
+//import { Switch, Route } from 'react-router-dom';
+
+const apiURL = 'http://192.168.43.167:3000 '
+
+
+function App() {
+  const[movies, updateValue] = useState([]);
+
+  useEffect ( function() {
+    console.log('cargando movies')
+    fetch(apiURL)
+      .then (res => res.json())
+      .then (response => {
+        const {original_title} = response
+        const movies = original_title.map(title => title.original_title )
+        console.log(movies)
+      })
+  }, [])
+
+  return (
+    <div className="App">
+      <section className="App-content">
+        <div>
+          <ul>
+            movies.map(
+            <li>
+              <h3>{movies}</h3>
+            </li>
+            )
+          </ul>
+        </div>
+        <button onClick = {() => updateValue()}>Actualizar</button> 
+      </section>
+    </div>
+  );
+}
+
+
+><div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0&appId=363642891170765&autoLogAppEvents=1" nonce="P9U3a9H2"></script><header><nav class="navbar navbar-expand-lg fixed-top border-bottom"><div class="container"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon-menu"></i></button><a class="navbar-brand" href="/"><span class="sr-only">SomosMovies</span></a><div class="collapse navbar-collapse"><form class="form-search bg-secondary" action="/" method="get" name="search"><input type="search" class="form-control" name="search" placeholder="Buscar" autocomplete="off" value="" data-toggle="tooltip" data-placement="bottom" title="Puedes ingresar el título, actor, escritor, director o IMDb ID."><i class="icon-magnifier"></i></form><ul class="navbar-nav mr-sm-auto spaceless"><li class="nav-item active"><a class="nav-link" href="/">Inicio</a></li><li class="nav-item "><a class="nav-link" href="/peliculas/">
+                           
+
+
+      HOME CON COMPONENT
+
+
+
+import { Component } from "react";
+import { Link } from "react-router-dom";
+
+class Home extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            movies: []
+        }
+    }
+
+    componentDidMount() {
+        console.log('Se creo el componente');
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=a1be2ce0b515966f84b5a47877b23e48&language=es-ES&page=1')
+            .then(res => res.json())
+            .then(movie => {
+                this.setState({ movies: movie })
+            })
+    }
+
+    render() {
+        return (
+            <>
+                <div className="container">
+                    <div className='row g-4 py-5 row-cols-1 row-cols-lg-4'>
+                        {this.state.movies.results?.map(movie => {
+                            return (
+                                <div className="col-12 col-sm-6 col-lg-3 my-2">
+                                    <div className="card h-150">
+                                        <img src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path} class="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title one-line-title">{movie.title}</h5>
+                                            <p className="card-text">{movie.overview}</p>
+                                            <Link to="/detail" className="btn btn-primary">Detalles</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+               
+            </>
+        );
+    }
+}
+
+export default Home;
